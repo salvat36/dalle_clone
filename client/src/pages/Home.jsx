@@ -4,19 +4,18 @@ import { Loader, Card, FormField } from "../components";
 const Home = () => {
   const [loading, setLoading] = useState(false);
   const [allPosts, setAllPosts] = useState(null);
-  const [ searchText, setSearchText ] = useState('');
-  
-  const RenderCards = ( {data, title}) => {
-    if(data?.length > 0 ) {
-      return data.map((post) => <Card key={post._id} {...post}/>) 
+  const [searchText, setSearchText] = useState("");
+
+  const RenderCards = ({ data, title }) => {
+    if (data?.length > 0) {
+      return data.map((post) => <Card key={post._id} {...post} />);
     }
     return (
       <h2 className="mt-5 font-bold text-[#6469ff] text-xl uppercase">
         {title}
       </h2>
-    )
-  }
-  
+    );
+  };
 
   return (
     <section className="max-w-7xl mx-auto">
@@ -39,14 +38,22 @@ const Home = () => {
         </div>
       ) : (
         <>
-        {searchText && (
-          <h2 className="font-medium text-[#666e75] text-xl mb-3">
-            Showing results for <span className="text-[#222328]">{searchText}</span>
-          </h2>
-        )}
-        <div className="grid lg:grid-col-4 sm:grid-col-3 xs:grid-col-2 grid-cols-1 gap-3">
-          {searchText}
-        </div>
+          {searchText && (
+            <h2 className="font-medium text-[#666e75] text-xl mb-3">
+              Showing results for{" "}
+              <span className="text-[#222328]">{searchText}</span>
+            </h2>
+          )}
+          <div className="grid lg:grid-col-4 sm:grid-col-3 xs:grid-col-2 grid-cols-1 gap-3">
+            {searchText ? (
+              <RenderCards
+                data={searchedResults}
+                title="No Search Results Found"
+              />
+            ) : (
+              <RenderCards data={allPosts} title="No Posts Yet" />
+            )}
+          </div>
         </>
       )}
     </section>
