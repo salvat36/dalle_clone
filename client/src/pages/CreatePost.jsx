@@ -1,29 +1,24 @@
 // import { useState } from "react";
 // import { useNavigate } from "react-router-dom";
 // import { preview } from "../assets";
-// import { getRandomPrompt } from "../utils";
-
-
+import { getRandomPrompt } from "../utils";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FormField, Loader } from "../components";
 
-
 const CreatePost = () => {
   const navigate = useNavigate();
-  const [ form, setForm ] = useState({
-    name: '', 
-    prompt: '', 
-    photo: '',
-  })
+  const [form, setForm] = useState({
+    name: "",
+    prompt: "",
+    photo: "",
+  });
   const [generatingImg, setGeneratingImg] = useState(false);
-  const [ loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = () => {}
-  const handleChange = (e) => {}
-  const handleSurpriseMe = () => {}
-
-
+  const handleSubmit = () => {};
+  const handleChange = (e) => {};
+  const handleSurpriseMe = () => {};
 
   return (
     <section className="max-w-7xl mx-auto">
@@ -41,7 +36,7 @@ const CreatePost = () => {
             type="text"
             name="name"
             placeholder="John Doe"
-            value="form.name"
+            value={form.name}
             handleChange={handleChange}
           />
           <FormField
@@ -49,7 +44,7 @@ const CreatePost = () => {
             type="text"
             name="prompt"
             placeholder="a bowl of soup that looks like a monster, knitted out of wool"
-            value="form.name"
+            value={form.prompt}
             handleChange={handleChange}
             isSurpriseMe
             handleSurpriseMe={handleSurpriseMe}
