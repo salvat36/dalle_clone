@@ -39,7 +39,7 @@ const FormField = ({
         onChange={handleChange}
         required
         autoComplete="off"
-      ></input>
+      />
     </div>
   );
 };

@@ -42,7 +42,7 @@ const CreatePost = () => {
             name="name"
             placeholder="John Doe"
             value="form.name"
-            handleChange="handleChange"
+            handleChange={handleChange}
           />
           <FormField
             LabelName="Prompt"
